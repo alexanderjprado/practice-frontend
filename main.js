@@ -1,3 +1,4 @@
+// Query Selectors
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 
@@ -5,11 +6,19 @@ const burgerIconMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
-const sideCart = document.querySelector('.product-detail');
+const sideCart = document.querySelector('#shoppingCartContainer');
+
+const productCard = document.querySelector('.product-card');
+const productDetail = document.querySelector('#productDetail');
 
 const cardsContainer = document.querySelector('.cards-container');
 
 const productList = [];
+productList.push({
+    name: 'Bike',
+    price: 123,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
 productList.push({
     name: 'Bike',
     price: 123,
@@ -20,8 +29,9 @@ productList.push({
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burgerIconMenu.addEventListener('click', toggleMobileMenu);
 shoppingCart.addEventListener('click', toggleShoppingCart);
+productCard.addEventListener('click', toggleProductDetail);
 
-//Functions
+// Functions
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
     sideCart.classList.add('inactive');
@@ -38,6 +48,10 @@ function toggleShoppingCart() {
     sideCart.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
+}
+
+function toggleProductDetail() {
+    productDetail.classList.toggle('inactive');
 }
 
 function renderProducts(arr) {
